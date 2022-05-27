@@ -71,18 +71,24 @@ const Board = () => {
     }
   };
 
-  const dragOver = (event: any) => {
+  const dragOver = (event: React.DragEvent<HTMLDivElement>) => {
     event.stopPropagation();
     event.preventDefault();
     event.dataTransfer.dropEffect = "move";
   };
 
-  const onNoteClicked = (event: any, note: NoteType) => {
+  const onNoteClicked = (
+    event: MouseEvent<HTMLElement, globalThis.MouseEvent>,
+    note: NoteType
+  ) => {
     event.stopPropagation();
     event.preventDefault();
   };
   // when note dropped
-  const dragEnd = (event: any, note: NoteType) => {
+  const dragEnd = (
+    event: MouseEvent<HTMLElement, globalThis.MouseEvent>,
+    note: NoteType
+  ) => {
     let rect = dropArea?.current?.getBoundingClientRect();
     let x = rect && event.clientX - rect?.left;
     let y = rect && event.clientY - rect?.top;
@@ -96,8 +102,8 @@ const Board = () => {
       y <= 600 &&
       y >= 0
     ) {
-      event.target.style.left = `${x}px`;
-      event.target.style.top = `${y}px`;
+      // event.target.style.left = `${x}px`;
+      // event.target.style.top = `${y}px`;
       if (userData) {
         const newNote = {
           ...note,

@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, MouseEvent } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  MouseEvent,
+  ChangeEvent,
+} from "react";
 import { NoteType } from "../../types";
 import { useDebounce } from "use-debounce";
 import styled from "styled-components";
@@ -84,7 +90,7 @@ const Note: React.FC<Props> = ({
   const [textValue, setTextValue] = useState("");
   const [value] = useDebounce(textValue, 1000);
   const allowedTextChanges = useRef<boolean>(false);
-  const handleChange = (event: any) => {
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     event.stopPropagation();
     event.preventDefault();
     const { value } = event.target;
