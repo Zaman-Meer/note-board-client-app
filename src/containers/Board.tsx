@@ -42,6 +42,7 @@ const Board = () => {
   };
   const handleToggle = () => setModalOpen(!modalOpen);
 
+  // create new Note when click on board
   const boardClicked = (event: MouseEvent<HTMLElement>) => {
     let rect = dropArea?.current?.getBoundingClientRect();
     let x = rect && event.clientX - rect?.left;
@@ -80,7 +81,7 @@ const Board = () => {
     event.stopPropagation();
     event.preventDefault();
   };
-
+  // when note dropped
   const dragEnd = (event: any, note: NoteType) => {
     let rect = dropArea?.current?.getBoundingClientRect();
     let x = rect && event.clientX - rect?.left;
@@ -109,7 +110,7 @@ const Board = () => {
     }
     setIsDragging(false);
   };
-
+  // when text changes in note
   const handleNoteTextChange = (note: NoteType) => {
     if (userData?.id === note?.userId) {
       const newNote = {
