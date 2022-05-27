@@ -26,7 +26,11 @@ const WhiteBoard = styled.div`
     font-size: 48px;
     opacity: 0.5;
     color: #ffffff;
-    cursor: pointer;
+    cursor: default;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
   }
 `;
 
