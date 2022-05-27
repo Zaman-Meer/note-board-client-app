@@ -135,6 +135,8 @@ const Board = () => {
   useEffect(() => {
     if (isLogin) {
       setModalOpen(false);
+    } else {
+      setModalOpen(true);
     }
   }, [isLogin]);
 

@@ -10,6 +10,12 @@ const CustomModal = styled(Modal)`
     input {
       margin: 10px 0 20px 0;
     }
+    // input error style
+    .error {
+      margin-bottom: 10px;
+      font-size: 12px;
+      color: red;
+    }
   }
 `;
 
@@ -42,7 +48,7 @@ const LoginModal: React.FC<Props> = ({
         placeholder="Enter User Name"
         disabled={isLoading}
       />
-
+      {error && <span className="error">{error}</span>}
       <Button disabled={isLoading} color="primary" onClick={handleSubmit}>
         {" "}
         Login{" "}
