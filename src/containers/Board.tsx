@@ -136,30 +136,27 @@ const Board = () => {
       onSubmit={handleLogin}
     />
   ) : (
-    <>
-      <button onClick={logout}>LogOut</button>
-      <WhiteBoard
-        ref={dropArea}
-        className="white-board"
-        onClick={boardClicked}
-        onDragOver={dragOver}
-      >
-        <h1 className="heading">Board</h1>
-        {notes?.map((note) => (
-          <Note
-            key={note?.id}
-            note={note}
-            isOwner={note?.userId === userData?.id}
-            isEditable={note?.userId === userData?.id}
-            onClick={(event) => onNoteClicked(event, note)}
-            onDragStart={() => setIsDragging(true)}
-            onDragEnd={(event) => dragEnd(event, note)}
-            onTextChange={handleNoteTextChange}
-            draggable={true}
-          />
-        ))}
-      </WhiteBoard>
-    </>
+    <WhiteBoard
+      ref={dropArea}
+      className="white-board"
+      onClick={boardClicked}
+      onDragOver={dragOver}
+    >
+      <h1 className="heading">Board</h1>
+      {notes?.map((note) => (
+        <Note
+          key={note?.id}
+          note={note}
+          isOwner={note?.userId === userData?.id}
+          isEditable={note?.userId === userData?.id}
+          onClick={(event) => onNoteClicked(event, note)}
+          onDragStart={() => setIsDragging(true)}
+          onDragEnd={(event) => dragEnd(event, note)}
+          onTextChange={handleNoteTextChange}
+          draggable={true}
+        />
+      ))}
+    </WhiteBoard>
   );
 };
 
